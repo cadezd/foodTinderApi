@@ -32,6 +32,12 @@ public class ProductRepository implements ProductRepoInt {
     }
 
     @Override
+    public Product getRandomProduct() {
+        Product product = (Product) this.hashOperations.get("PRODUCT", hashOperations.randomKey("PRODUCT"));
+        return product;
+    }
+
+    @Override
     public void update(Product product) {
         this.save(product);
     }

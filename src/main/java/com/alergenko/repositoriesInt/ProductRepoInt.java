@@ -8,6 +8,8 @@ public interface ProductRepoInt {
 
     Product findByBarcode(String barcode);
 
+    Product getRandomProduct();
+
     void update(Product product);
 
     void delete(String barcode);

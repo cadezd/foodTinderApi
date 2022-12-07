@@ -16,7 +16,7 @@ public class ProductResource {
 
     // Adds new product
     @PostMapping("/add")
-    public Product add(@ModelAttribute  final Product product) {
+    public Product add(@ModelAttribute final Product product) {
         productRepository.save(product);
         return productRepository.findByBarcode(product.getBarcode());
     }
@@ -32,6 +32,12 @@ public class ProductResource {
     @GetMapping("/get/{barcode}")
     public Product findByBarcode(@PathVariable("barcode") final String barcode) {
         return productRepository.findByBarcode(barcode);
+    }
+
+    // Gets random product
+    @GetMapping("/get")
+    public Product getRandomProduct() {
+        return productRepository.getRandomProduct();
     }
 
     // Deletes specific product
