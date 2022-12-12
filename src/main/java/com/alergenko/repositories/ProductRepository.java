@@ -21,7 +21,6 @@ public class ProductRepository implements ProductRepoInt {
 
     @Override
     public void save(Product product) {
-        System.out.println(product);
         this.hashOperations.put("PRODUCT", product.getBarcode(), product);
     }
 
