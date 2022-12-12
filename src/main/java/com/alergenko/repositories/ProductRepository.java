@@ -5,6 +5,8 @@ import com.alergenko.repositoriesInt.ProductRepoInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -16,6 +18,9 @@ public class ProductRepository implements ProductRepoInt {
 
     public ProductRepository(RedisTemplate<String, Product> redisTemplate) {
         this.redisTemplate = redisTemplate;
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
         this.hashOperations = redisTemplate.opsForHash();
     }
 
