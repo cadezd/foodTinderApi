@@ -35,9 +35,15 @@ public class ProductResource {
     }
 
     // Gets random product
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/get")
-    public Product getRandomProduct() {
-        return productRepository.getRandomProduct();
+    public Product[] getRandomProduct() {
+        return new Product[]{
+                productRepository.getRandomProduct(),
+                productRepository.getRandomProduct(),
+                productRepository.getRandomProduct(),
+                productRepository.getRandomProduct(),
+                productRepository.getRandomProduct()};
     }
 
     // Deletes specific product

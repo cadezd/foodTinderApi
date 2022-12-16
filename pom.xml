@@ -12,7 +12,7 @@
     <artifactId>alergenko-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>alergenko-api</name>
-    <description>API for Alergenko application.</description>
+    <description>API for foodTinderApi application.</description>
     <properties>
         <java.version>11</java.version>
     </properties>
