@@ -35,7 +35,7 @@ public class ProductResource {
     }
 
     // Gets random product
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "*")
     @GetMapping("/get")
     public Product[] getRandomProduct() {
         return new Product[]{
