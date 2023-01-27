@@ -53,12 +53,12 @@ public class ProductResource {
         return "OK";
     }
 
-    @PostMapping("/live")
+    @GetMapping("/live")
     public String check() {
         return "OK";
     }
 
-    @PostMapping("/ready")
+    @GetMapping("/ready")
     public String check1() {
         productRepository.getRandomProduct();
         return "OK";
