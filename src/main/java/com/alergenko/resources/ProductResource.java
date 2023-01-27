@@ -52,4 +52,16 @@ public class ProductResource {
         productRepository.delete(barcode);
         return "OK";
     }
+
+    @PostMapping("/live")
+    public String check() {
+        return "OK";
+    }
+
+    @PostMapping("/ready")
+    public String check1() {
+        productRepository.getRandomProduct();
+        return "OK";
+    }
+
 }
