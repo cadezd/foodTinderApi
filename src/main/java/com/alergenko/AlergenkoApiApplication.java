@@ -2,6 +2,7 @@ package com.alergenko;
 
 import com.alergenko.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -17,13 +18,18 @@ public class AlergenkoApiApplication {
     @Autowired
     private Environment env;
 
+    @Value("${spring.redis.host:#{redis}}")
+    private String redisHost;
+
+    @Value("${spring.redis.port:#{6379}}")
+    private String redisPort;
+
     @Bean
-    @Autowired
     public LettuceConnectionFactory lettuceConnectionFactory() {
         final RedisStandaloneConfiguration redisStandaloneConfiguration =
                 new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName(env.getProperty("spring.redis.host", "redis"));
-        redisStandaloneConfiguration.setPort(Integer.parseInt(env.getProperty("spring.redis.port", "6379")));
+        redisStandaloneConfiguration.setHostName(redisHost);
+        redisStandaloneConfiguration.setPort(Integer.parseInt(redisPort));
 
         return new LettuceConnectionFactory(redisStandaloneConfiguration);
     }

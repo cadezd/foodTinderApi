@@ -14,7 +14,6 @@ public class ProductRepository implements ProductRepoInt {
 
     @Autowired
     private RedisTemplate<String, Product> redisTemplate;
-    @Autowired
     private HashOperations hashOperations;
 
     public ProductRepository(RedisTemplate<String, Product> redisTemplate) {
