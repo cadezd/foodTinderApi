@@ -13,7 +13,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 @SpringBootApplication
 public class AlergenkoApiApplication {
 
-    // Connection Factory (here you set connection paramatere - ip, port, psswd)
+    // Connection Factory (here you set connection paramaters - ip, port, psswd)
     @Autowired
     private Environment env;
 
