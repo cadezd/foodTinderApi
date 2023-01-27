@@ -18,6 +18,7 @@ public class AlergenkoApiApplication {
     private Environment env;
 
     @Bean
+    @Autowired
     public LettuceConnectionFactory lettuceConnectionFactory() {
         final RedisStandaloneConfiguration redisStandaloneConfiguration =
                 new RedisStandaloneConfiguration();
