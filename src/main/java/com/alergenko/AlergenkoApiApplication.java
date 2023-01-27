@@ -21,8 +21,8 @@ public class AlergenkoApiApplication {
     public LettuceConnectionFactory lettuceConnectionFactory() {
         final RedisStandaloneConfiguration redisStandaloneConfiguration =
                 new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName(env.getProperty("REDIS_HOST", env.getProperty("spring.redis.host")));
-        redisStandaloneConfiguration.setPort(Integer.parseInt(env.getProperty("REDIS_PORT", env.getProperty("spring.redis.port"))));
+        redisStandaloneConfiguration.setHostName(env.getProperty("spring.redis.host", "redis"));
+        redisStandaloneConfiguration.setPort(Integer.parseInt(env.getProperty("spring.redis.port", "6379")));
 
         return new LettuceConnectionFactory(redisStandaloneConfiguration);
     }
