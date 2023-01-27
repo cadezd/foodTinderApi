@@ -1,16 +1,15 @@
 package com.alergenko.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 
-@Data
-@ToString
+
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
+@ToString
 public class Product implements Serializable {
     private String barcode;
     private String itemId;
